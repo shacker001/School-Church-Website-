@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Church Partnership</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/church_partnership.css' %}">
+</head>
+<body>
+    <h1>Church Partnership</h1>
+    <h2>Programs</h2>
+    <ul>
+        {% for program in programs %}
+            <li>
+                <h2>{{ program.name }}</h2>
+                <p>{{ program.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Testimonials</h2>
+    <ul>
+        {% for testimonial in testimonials %}
+            <li>
+                <strong>{{ testimonial.author }}:</strong> {{ testimonial.content }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

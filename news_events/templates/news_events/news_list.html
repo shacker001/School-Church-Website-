@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latest News</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/news_events.css' %}">
+</head>
+<body>
+    <h1>Latest News</h1>
+    <ul>
+        {% for item in news %}
+            <li>
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.content }}</p>
+                <p><small>{{ item.publication_date }}</small></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

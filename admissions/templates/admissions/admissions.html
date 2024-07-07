@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admissions</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admissions.css' %}">
+</head>
+<body>
+    <h1>Admissions</h1>
+    <h2>Application Process</h2>
+    <ul>
+        {% for step in steps %}
+            <li>{{ step.step_number }}: {{ step.description }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Important Dates</h2>
+    <ul>
+        {% for date in dates %}
+            <li>{{ date.event }}: {{ date.date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

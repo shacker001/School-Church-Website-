@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Academic Programs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'academics/programs.css' %}">
+</head>
+<body>
+    <h1>Academic Programs</h1>
+    <ul>
+        {% for program in programs %}
+            <li>
+                <h2>{{ program.name }}</h2>
+                <p>{{ program.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
