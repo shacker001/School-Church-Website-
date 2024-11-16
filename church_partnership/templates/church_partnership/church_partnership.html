@@ -1,28 +1,155 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Church Partnership</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/church_partnership.css' %}">
-</head>
-<body>
+
+{% block title %}Church Partnership{% endblock %}
+
+{% block content %}
+<style>
+    
+.church-partnership {
+    padding: 30px;
+    background-color: #f5f8fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Header Styles */
+.church-partnership h1 {
+    font-size: 2.5em;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.church-partnership h2 {
+    font-size: 1.8em;
+    color: #0056b3;
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Programs Section */
+.church-programs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.church-programs li {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.church-programs li h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.church-programs li p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.testimonials li {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 5px solid #0056b3;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.testimonials li strong {
+    color: #0056b3;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.testimonials li p {
+    color: #444;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.church-programs li:hover, 
+.testimonials li:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .church-partnership {
+        padding: 20px;
+    }
+
+    .church-partnership h1 {
+        font-size: 2em;
+    }
+
+    .church-partnership h2 {
+        font-size: 1.5em;
+    }
+
+    .church-programs li h2, 
+    .testimonials li strong {
+        font-size: 1.3em;
+    }
+
+    .church-programs li p, 
+    .testimonials li p {
+        font-size: 1em;
+    }
+}
+
+</style>
+<section class="church-partnership">
     <h1>Church Partnership</h1>
-    <h2>Programs</h2>
-    <ul>
-        {% for program in programs %}
+
+    <div class="church-programs">
+        <h2>Programs</h2>
+        <ul>
+            {% for program in programs %}
             <li>
                 <h2>{{ program.name }}</h2>
                 <p>{{ program.description }}</p>
             </li>
-        {% endfor %}
-    </ul>
-    <h2>Testimonials</h2>
-    <ul>
-        {% for testimonial in testimonials %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="testimonials">
+        <h2>Testimonials</h2>
+        <ul>
+            {% for testimonial in testimonials %}
             <li>
-                <strong>{{ testimonial.author }}:</strong> {{ testimonial.content }}
+                <strong>{{ testimonial.author }}:</strong>
+                <p>{{ testimonial.content }}</p>
             </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

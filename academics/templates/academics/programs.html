@@ -1,19 +1,91 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Academic Programs</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'academics/programs.css' %}">
-</head>
-<body>
+
+{% block title %}Academics{% endblock %}
+
+{% block content %}
+<style>
+
+.academic-programs {
+    padding: 30px;
+    background-color: #f5f8fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.academic-programs h1 {
+    font-size: 2.5em;
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Programs List */
+.program-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.program-list li {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.program-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.program-list li h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.program-list li p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 992px) {
+    .academic-programs {
+        padding: 20px;
+    }
+
+    .academic-programs h1 {
+        font-size: 2em;
+    }
+
+    .program-list li h2 {
+        font-size: 1.5em;
+    }
+
+    .program-list li p {
+        font-size: 1em;
+    }
+}
+
+</style>
+<section class="academic-programs">
     <h1>Academic Programs</h1>
-    <ul>
+    <ul class="program-list">
         {% for program in programs %}
-            <li>
-                <h2>{{ program.name }}</h2>
-                <p>{{ program.description }}</p>
-            </li>
+        <li>
+            <h2>{{ program.name }}</h2>
+            <p>{{ program.description }}</p>
+        </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+</section>
+{% endblock %}

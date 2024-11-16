@@ -1,18 +1,70 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <title>About Us</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
-</head>
+{% block title %}About Us{% endblock %}
 
-<body>
+{% block content %}
+<style>
+.about-page {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+    line-height: 1.8;
+}
+
+.about-page h1 {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.about-page h2 {
+    font-size: 2em;
+    color: #333333;
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.about-page p {
+    font-size: 1.2em;
+    color: #666666;
+    margin-top: 15px;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 992px) {
+    .about-page {
+        padding: 20px;
+    }
+
+    .about-page h1 {
+        font-size: 2em;
+    }
+
+    .about-page h2 {
+        font-size: 1.5em;
+    }
+
+    .about-page p {
+        font-size: 1em;
+    }
+}
+
+</style>
+<section class="about-page">
     <h1>About Us</h1>
+    
     <h2>{{ history.title }}</h2>
     <p>{{ history.content }}</p>
+    
     <h2>Mission Statement</h2>
     <p>{{ mission.statement }}</p>
-</body>
-
-</html>
+</section>
+{% endblock %}

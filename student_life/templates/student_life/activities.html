@@ -1,19 +1,93 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Activities</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/activities.css' %}">
-</head>
-<body>
+
+{% block title %}Student Life{% endblock %}
+
+{% block content %}
+<style>
+    /* Student Activities Page Specific Styles */
+
+/* General Section Styling */
+.student-activities {
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.student-activities h1 {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Activities List */
+.activity-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.activity-list li {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.activity-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.activity-list li h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.activity-list li p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .student-activities {
+        padding: 20px;
+    }
+
+    .student-activities h1 {
+        font-size: 2em;
+    }
+
+    .activity-list li h2 {
+        font-size: 1.5em;
+    }
+
+    .activity-list li p {
+        font-size: 1em;
+    }
+}
+
+</style>
+<section class="student-activities">
     <h1>Student Activities</h1>
-    <ul>
+    <ul class="activity-list">
         {% for activity in activities %}
-            <li>
-                <h2>{{ activity.name }}</h2>
-                <p>{{ activity.description }}</p>
-            </li>
+        <li>
+            <h2>{{ activity.name }}</h2>
+            <p>{{ activity.description }}</p>
+        </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+</section>
+{% endblock %}

@@ -1,19 +1,110 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-    <script src="{% static 'js/home.js' %}" defer></script>
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Home Page</h1>
-        <section id="home" class="home">
-            <div class="section-headig text-center">
-                <!-- <h2>What We Do</h2> -->
-            </div>
-        </section>
-    </header>
-</body>
-</html>
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    /* Home Page Styles */
+.home-page {
+    text-align: center;
+    padding: 30px;
+}
+
+.home-page h1 {
+    font-size: 2.5em;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.home-page p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Photo Slider Styles */
+.photo-slider {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    height: 405px;
+    margin: 0 auto;
+    background: #0056b3;
+    overflow: hidden;
+    margin: 0 auto 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-container img {
+    min-width: 405px;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-page h1 {
+        font-size: 2em;
+    }
+
+    .home-page p {
+        font-size: 1em;
+    }
+
+    .slider-controls button {
+        padding: 8px 15px;
+        font-size: 1.2em;
+    }
+}
+
+</style>
+<section class="home-page">
+    <h1>Welcome to Our Institution</h1>
+    <p>Explore our campus, programs, and vibrant student life.</p>
+    
+    <section class="photo-slider">
+        <div class="slider-container">
+            <img src="{% static 'images/photo1.jpg' %}" alt="Campus Image 1">
+            <img src="{% static 'images/photo2.png' %}" alt="Campus Image 2">
+            <img src="{% static 'images/photo3.png' %}" alt="Campus Image 3">
+        </div>
+        <div class="slider-controls">
+            <button id="prev-btn">&#8249;</button>
+            <button id="next-btn">&#8250;</button>
+        </div>
+    </section>
+</section>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <section class="detail">
+        <h2>{{ news_item.title }}</h2>
+        <p>{{ news.content }}</p>
+        <p><strong>Published on:</strong> {{ news.publication_date }}</p>
+        <a href="{% url 'news_list' %}" class="button">Back to News</a>
+    </section>
+    
+{% endblock %}
+

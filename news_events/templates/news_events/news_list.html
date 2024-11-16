@@ -1,20 +1,36 @@
+{% extends "home/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Latest News</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/news_events.css' %}">
-</head>
-<body>
-    <h1>Latest News</h1>
-    <ul>
-        {% for item in news %}
-            <li>
-                <h2>{{ item.title }}</h2>
-                <p>{{ item.content }}</p>
-                <p><small>{{ item.publication_date }}</small></p>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+
+{% block content %}
+    <h1>Latest News & Upcoming Events</h1>
+
+    <!-- Display News -->
+    <section class="news">
+        <h2>News</h2>
+        <div class="grid-container">
+            {% for news_item in news %}
+            <div class="grid-item">
+                <h3>{{ news_item.title }}</h3>
+                <p>{{ news_item.content|truncatewords:20 }}</p>
+                <a href="{% url 'news_detail' news_item.id %}" class="button">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <section class="events">
+        <h2>Events</h2>
+        <div class="grid-container">
+            {% for event_item in events %}
+            <div class="grid-item">
+                <h3>{{ event_item.title }}</h3>
+                <p>{{ event_item.description|truncatewords:20 }}</p>
+                <p><strong>Date:</strong> {{ event_item.event_date }}</p>
+                <a href="{% url 'event_detail' event_item.id %}" class="button">Read More</a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock %}
