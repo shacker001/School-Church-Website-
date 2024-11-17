@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'news_events',
     'student_life',
     'church_partnership',
+    'contact',
     'cloudinary',
     'cloudinary_storage',
 ]

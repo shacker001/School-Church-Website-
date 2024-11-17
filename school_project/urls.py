@@ -12,6 +12,7 @@ urlpatterns = [
     path('church_partnership/', include('church_partnership.urls')),
     path('news_events/', include('news_events.urls')),
     path('student_life/', include('student_life.urls')),
+    path('contact/', include('contact.urls')),
 ]
 
 if settings.DEBUG:
